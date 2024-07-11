@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const passport = require('passport');
 const session = require('express-session');
 const authRoutes = require('./routes/auth');
@@ -12,6 +13,8 @@ const { connectDB } = require('./utils/utils');
 
 
 const app = express();
+
+app.use(cors()); 
 
 connectDB(process.env.MONGODB_URI)
 
